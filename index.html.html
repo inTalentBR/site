@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> inTalent Co. </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #001f3f;
+            text color: white;
+            box-shadow: 0 2px 10px rgba(66, 65, 65, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            align-items: center;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #20c997;
+        }
+        
+        .cta-button {
+            background-color: #20c997;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #17a2b8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(32, 201, 151, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #001f3f, #003366);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        /* Mensagem Em Breve */
+        .coming-soon-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 60px 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .coming-soon-container h3 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #001f3f;
+        }
+        
+        .coming-soon-icon {
+            font-size: 3rem;
+            color: #20c997;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .coming-soon-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .notify-button {
+            background-color: #20c997;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .notify-button:hover {
+            background-color: #17a2b8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(32, 201, 151, 0.3);
+        }
+        
+        /* Benefícios */
+        .benefits {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #001f3f;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #20c997;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: #001f3f;
+        }
+        
+        /* Depoimentos */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #001f3f;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: #001f3f;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #001f3f;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #001f3f;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #001f3f;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #20c997;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Urgência */
+        .urgency-banner {
+            background-color: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .coming-soon-container {
+                padding: 40px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .benefit-card, .testimonial-card {
+                padding: 20px;
+            }
+            
+            .coming-soon-container h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner de Urgência -->
+    <div class="urgency-banner">
+        <div class="container">
+            <p> SITE EM DESENVOLVIMENTO, VOLTE EM OUTRO MOMENTO! <span class="countdown" id="countdown"> </span></p>
+        </div>
+    </div>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo.png" alt="intalent.logo" class="logo">
+                <div class="nav-links">
+                    <a href="#benefits">Vantagens</a>
+                    <a href="#faq">Dúvidas</a>
+                    <a href="#notifyForm" class="cta-button">Contato Rápido</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Em breve um banco de talentos humanizado, mas de forma inteligente. </h1>
+            <p>Estamos preparando uma plataforma incrível para conectar você às melhores oportunidades do mercado</p>
+            
+            <div class="coming-soon-container">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Estamos quase lá!</h3>
+                <p class="coming-soon-text">
+                    Nosso cadastro de talentos está em fase final de desenvolvimento. 
+                    Queremos oferecer a melhor experiência para você.
+                </p>
+                <p class="coming-soon-text">
+                    Deixe seu e-mail abaixo e seja o primeiro a saber quando lançarmos:
+                </p>
+                
+                <form id="notifyForm" style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 15px;">
+                        <input type="email" placeholder="Seu melhor e-mail" required 
+                               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <button type="submit" class="notify-button">
+                        AVISE-ME <i class="fas fa-bell"></i>
+                    </button>
+                </form>
+                
+                <div style="font-size: 0.9rem; color: #666;">
+                    <i class="fas fa-lock"></i> Seu e-mail está seguro conosco
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefícios -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2>O que você vai encontrar</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Oportunidades Exclusivas</h3>
+                    <p>Tenha acesso a vagas que não são divulgadas publicamente.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Match Perfeito</h3>
+                    <p>Conectamos você com empresas que combinam com seu perfil.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Consultoria Gratuita</h3>
+                    <p>Feedback profissional sobre seu currículo e perfil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Dúvidas Frequentes</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">Quando o cadastro estará disponível?</div>
+                    <p>Estamos finalizando os últimos detalhes para oferecer a melhor experiência. Previsão de lançamento em breve.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Haverá algum custo para o candidato?</div>
+                    <p>Não, nosso serviço de plano básico será gratuito para profissionais. Somos remunerados pelas empresas contratantes.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Quais áreas terão vagas?</div>
+                    <p>Trabalharemos com diversas áreas como TI, Marketing, Vendas, RH, Design, Finanças e muitas outras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="hero" style="padding: 60px 0; background-color: #20c997;">
+        <div class="container">
+            <h2>Quer ser avisado do lançamento?</h2>
+            <p style="margin-bottom: 30px;">Deixe seu e-mail e seja o primeiro a saber quando abrirmos</p>
+            <a href="#notifyForm" class="cta-button" style="background-color: white; color: #20c997; display: inline-block;">AVISE-ME</a>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="logo.png" alt="intalent.logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p>Onde vagas encontram talentos.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#benefits">Vantagens</a></li>
+                        <li><a href="#faq">Dúvidas</a></li>
+                        <li><a href="#companies">Para Empresas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">LGPD</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> contato@intalent.com.br</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> (xx) xxxxx-xxxx</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 inTalent Co. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Feedback ao enviar formulário
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simular envio (substituir por código real de envio)
+            setTimeout(() => {
+                alert('Obrigado pelo seu interesse! Vamos te avisar assim que lançarmos.');
+                this.reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
