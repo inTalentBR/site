@@ -433,9 +433,15 @@
                     Deixe seu e-mail abaixo e seja o primeiro a saber quando lançarmos:
                 </p>
                 
-                <form id="notifyForm" style="margin-bottom: 20px;">
+                <!-- Formulário Funcional com FormSubmit -->
+                <form id="notifyForm" action="https://formsubmit.co/contato@intalent.com.br" method="POST" style="margin-bottom: 20px;">
+                    <input type="hidden" name="_subject" value="Novo interessado na inTalent">
+                    <input type="hidden" name="_next" value="https://intalent.com.br/obrigado.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
                     <div style="margin-bottom: 15px;">
-                        <input type="email" placeholder="Seu melhor e-mail" required 
+                        <input type="email" name="email" placeholder="Seu melhor e-mail" required 
                                style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px;">
                     </div>
                     <button type="submit" class="notify-button">
@@ -517,66 +523,80 @@
     </section>
     
     <!-- Rodapé -->
-    <!-- Rodapé -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <img src="logo.png" alt="intalent.logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-                <p>Onde vagas encontram talentos.</p>
-                <div class="social-links">
-                    <a href="https://facebook.com/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://linkedin.com/company/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://instagram.com/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="logo.png" alt="intalent.logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p>Onde vagas encontram talentos.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://linkedin.com/company/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/intalentBR" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#benefits">Vantagens</a></li>
+                        <li><a href="#faq">Dúvidas</a></li>
+                        <li><a href="#companies">Para Empresas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">LGPD</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> contato@intalent.com.br</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> (xx) xxxxx-xxxx</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Brasil</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-column">
-                <h3>Links Rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#benefits">Vantagens</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
-                    <li><a href="#companies">Para Empresas</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">LGPD</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contato</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> contato@intalent.com.br</li>
-                    <li><i class="fas fa-phone" style="margin-right: 8px;"></i> (xx) xxxxx-xxxx</li>
-                    <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Brasil</li>
-                </ul>
+            <div class="copyright">
+                <p>&copy; 2025 inTalent Co. Todos os direitos reservados.</p>
             </div>
         </div>
-        
-        <div class="copyright">
-            <p>&copy; 2025 inTalent Co. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
     
-    <!-- Scripts -->
+    <!-- Script para contador regressivo -->
     <script>
-        // Feedback ao enviar formulário
-        document.getElementById('notifyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Contador regressivo (opcional)
+        function updateCountdown() {
+            const launchDate = new Date('2025-07-01').getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
             
-            // Simular envio (substituir por código real de envio)
-            setTimeout(() => {
-                alert('Obrigado pelo seu interesse! Vamos te avisar assim que lançarmos.');
-                this.reset();
-            }, 1000);
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+        
+        // Validação em tempo real do e-mail
+        const emailInput = document.querySelector('input[type="email"]');
+        emailInput.addEventListener('input', function() {
+            if (this.validity.valid) {
+                this.style.borderColor = '#20c997';
+            } else {
+                this.style.borderColor = '#ff6b6b';
+            }
         });
     </script>
 </body>
