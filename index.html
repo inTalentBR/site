@@ -600,10 +600,21 @@
         });
     </script>
     
+    <!-- Web analytics Vercel -->
     <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Google tag analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QK0ZXXF1T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QK0ZXXF1T');
+</script>
     
 </body>
 </html>
