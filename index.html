@@ -445,14 +445,20 @@
                 
                 <!-- Formulário Funcional com FormSubmit -->
                 <form id="notifyForm" action="https://formsubmit.co/contato@intalent.com.br" method="POST" style="margin-bottom: 20px;">
-                    <input type="hidden" name="_subject" value="Novo interessado na inTalent">
+                    <input type="hidden" name="_subject" value="Novo contato via inTalent">
                     <input type="hidden" name="_next" value="https://intalent.com.br/obrigado.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     
                     <div style="margin-bottom: 15px;">
+                        <input type="text" name="name" placeholder="Seu nome completo" required
+                               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px;">
+                               
                         <input type="email" name="email" placeholder="Seu melhor e-mail" required 
-                               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px;">
+                               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px;">
+
+                        <input type="text" name="phone" placeholder="Seu telefone (opcional)"
+                               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px;">
                     </div>
                     <button type="submit" class="notify-button">
                         AVISE-ME <i class="fas fa-bell"></i>
